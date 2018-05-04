@@ -1,0 +1,285 @@
+﻿<Window x:Class="Deportes.Deportes1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Deportes"
+        mc:Ignorable="d"
+        Title="Deportes1" Height="450" Width="800">
+    <TabControl>
+        <TabItem Header="DEPORTES" FontWeight="Bold" FontStyle="Italic">
+            <TabItem.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="#FF40EEE6" Offset="1"/>
+                </LinearGradientBrush>
+            </TabItem.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <WrapPanel Grid.Row="0">
+                    <Button x:Name="btnDeportesNuevo" Click="btnDeportesNuevo_Click">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF25ECA4" Offset="0.133"/>
+                                <GradientStop Color="#FFEAC2C2"/>
+                            </LinearGradientBrush>
+                        </Button.Background> Nuevo
+                    </Button>
+                    <Button  x:Name="btnDeportesEditar" Click="btnDeportesEditar_Click">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF25ECA4" Offset="0.133"/>
+                                <GradientStop Color="#FFA2ECC3"/>
+                            </LinearGradientBrush>
+                        </Button.Background> Editar
+                    </Button>
+                    <Button  x:Name="btnDeportesGuardar" Click="btnDeportesGuardar_Click" >
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF25ECA4" Offset="0.133"/>
+                                <GradientStop Color="#FFAAF0C3"/>
+                            </LinearGradientBrush>
+                        </Button.Background> Guardar
+                    </Button>
+                    <Button  x:Name="btnDeportesCancelar" Click="btnDeportesCancelar_Click" FontStyle="Italic" >
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF25ECA4" Offset="0.133"/>
+                                <GradientStop Color="#FFEAC2C2"/>
+                            </LinearGradientBrush>
+                        </Button.Background> Cancelar
+                    </Button>
+                    <Button  x:Name="btnDeportesEliminar" Click="btnDeportesEliminar_Click">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF25ECA4" Offset="0.133"/>
+                                <GradientStop Color="#FFEAC2C2"/>
+                            </LinearGradientBrush>
+                        </Button.Background> Elimnar
+                    </Button>
+                </WrapPanel>
+                <WrapPanel Grid.Row="1">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Id</TextBlock>
+                        <TextBlock x:Name="txbDeporteId"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Nombre del Deporte</TextBlock>
+                        <TextBox x:Name="txbNombreDeporte"
+						Width="200"></TextBox>
+                    </StackPanel>
+                </WrapPanel>
+                <DataGrid x:Name="dtgDeportes" Grid.Row="2"  IsReadOnly="True">
+                    <DataGrid.Background>
+                        <ImageBrush ImageSource="Imagenes/images.jpg"/>
+                    </DataGrid.Background>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="EQUIPOS" FontWeight="Bold" FontStyle="Italic">
+            <TabItem.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="#FF40EEDE" Offset="1"/>
+                </LinearGradientBrush>
+            </TabItem.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <WrapPanel Grid.Row="0">
+                    <Button x:Name="btnEquipoNuevo" Click="btnEquipoNuevo_Click" Background="#FF9EF3C5" >Nuevo</Button>
+                    <Button  x:Name="btnEquipoEditar" Click="btnEquipoEditar_Click" Background="#FF9EF3C5" >Editar</Button>
+                    <Button  x:Name="btnEquipoGuardar" Click="btnEquipoGuardar_Click" Background="#FF9EF3C5" >Guardar</Button>
+                    <Button  x:Name="btnEquipoCancelar" Click="btnEquipoCancelar_Click" Background="#FF9EF3C5" >Cancelar</Button>
+                    <Button  x:Name="btnEquipoEliminar" Click="btnEquipoEliminar_Click" Background="#FF9EF3C5" >Elimnar</Button>
+                </WrapPanel>
+                <WrapPanel Grid.Row="1">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Id:</TextBlock>
+                        <TextBlock x:Name="txbEquipoId"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Nombre Del Equipo:</TextBlock>
+                        <TextBox x:Name="txbEquipoNombre"
+						Width="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Deporte</TextBlock>
+                        <ComboBox x:Name="cmbEquipoDeporte"
+						Width="200"></ComboBox>
+                    </StackPanel>
+                </WrapPanel>
+                <DataGrid x:Name="dtgEquipos" Grid.Row="2"  IsReadOnly="True">
+                    <DataGrid.Background>
+                        <ImageBrush ImageSource="Imagenes/images.jpg"/>
+                    </DataGrid.Background>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="USUARIO" Margin="-1,0,-2,0" FontWeight="Bold" FontStyle="Italic" >
+            <TabItem.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="#FF5EE0D4" Offset="1"/>
+                </LinearGradientBrush>
+            </TabItem.Background>
+            <TabItem.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.197"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TabItem.RenderTransform>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <WrapPanel Grid.Row="0">
+                    <Button x:Name="btnUsuarioNuevo" Click="btnUsuarioNuevo_Click" Background="#FFA4F0B9">Nuevo</Button>
+                    <Button x:Name="btnUsuarioEditar" Click="btnUsuarioEditar_Click" Background="#FFA4F0B9">Editar</Button>
+                    <Button x:Name="btnUsuarioGuardar" Click="btnUsuarioGuardar_Click" Background="#FFA4F0B9">Guardar</Button>
+                    <Button x:Name="btnUsuarioCancelar" Click="btnUsuarioCancelar_Click" Background="#FFA4F0B9">Cancelar</Button>
+                    <Button x:Name="btnUsuarioEliminar" Click="btnUsuarioEliminar_Click_1" Background="#FFA4F0B9">Eliminar</Button>
+                </WrapPanel>
+                <WrapPanel Grid.Row="1">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Id</TextBlock>
+                        <TextBlock x:Name="txbUsuarioId"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Nombre</TextBlock>
+                        <TextBox x:Name="txbUsuarioNombre" Width="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Apellidos</TextBlock>
+                        <TextBox x:Name="txbUsuarioApellidos" Width="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Direccion</TextBlock>
+                        <TextBox x:Name="txbUsuarioDireccion" Width="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Nueva Contraseña</TextBlock>
+                        <PasswordBox x:Name="txbUsuarioContraseña" Width="200"></PasswordBox>
+                    </StackPanel>
+                </WrapPanel>
+                <DataGrid x:Name="dtgUsuario" Grid.Row="2" IsReadOnly="True">
+                    <DataGrid.Background>
+                        <ImageBrush ImageSource="Imagenes/descargar.jpg"/>
+                    </DataGrid.Background>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="TORNEO" FontWeight="Bold" FontStyle="Italic">
+            <TabItem.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="#FF40EEE6" Offset="1"/>
+                </LinearGradientBrush>
+            </TabItem.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <WrapPanel Grid.Row="0">
+                    <Button x:Name="btnTorneoNuevo" Click="btnTorneoNuevo_Click" Background="#FF9CF0BE">Nuevo</Button>
+                    <Button x:Name="btnTorneoOrdenar" Click="btnTorneoOrdenar_Click" Background="#FF9CF0BE">Orden De Juego</Button>
+                    <Button x:Name="btnTorneoCancelar" Click="btnTorneoCancelar_Click" Background="#FF9CF0BE">Cancelar</Button>
+                    <Button x:Name="btnTorneoEliminar" Click="btnTorneoEliminar_Click" Background="#FF9CF0BE">Eliminar</Button>
+                </WrapPanel>
+                <WrapPanel Grid.Row="1">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Fecha</TextBlock>
+                        <DatePicker x:Name="txbTorneoFecha" Width="200"></DatePicker>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Deporte</TextBlock>
+                        <ComboBox x:Name="cmbTorneoDeporte" Width="200">
+                            <ComboBox.Background>
+                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                    <GradientStop Color="#FF33DAD3" Offset="1"/>
+                                </LinearGradientBrush>
+                            </ComboBox.Background>
+                        </ComboBox>
+                    </StackPanel>
+                </WrapPanel>
+                <DataGrid x:Name="dtgTorneo" Grid.Row="2" IsReadOnly="True">
+                    <DataGrid.Background>
+                        <ImageBrush ImageSource="Imagenes/images.jpg"/>
+                    </DataGrid.Background>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="PUNTUACION" FontStyle="Italic" FontWeight="Bold">
+            <TabItem.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="#FF40EEE6" Offset="1"/>
+                </LinearGradientBrush>
+            </TabItem.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <WrapPanel Grid.Row="0">
+                    <Button x:Name="btnPuntuacionBuscarInfo"  Click="btnPuntuacionBuscarInfo_Click" Background="#FF93F0AC">Informacion</Button>
+                    <Button x:Name="btnPuntuacionEditar" Click="btnPuntuacionEditar_Click_1" Background="#FF87EEA3" >Editar</Button>
+                    <Button x:Name="btnPuntuacionCancelar" Click="btnPuntuacionCancelar_Click" Background="#FF80E89C">Cancelar</Button>
+                    <Button x:Name="btnPuntuacionEliminar" Click="btnPuntuacionEliminar_Click" Background="#FF8DEAA7">Eliminar</Button>
+                </WrapPanel>
+                <WrapPanel Grid.Row="1">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Deporte</TextBlock>
+                        <ComboBox x:Name="cmbPuntuacionDeporte" Width="200"></ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Fecha de Juego</TextBlock>
+                        <DatePicker x:Name="txbPuntuacionFecha" Width="200"></DatePicker>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Id</TextBlock>
+                        <TextBox x:Name="txbPuntuacionId" Width="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Equipo A</TextBlock>
+                        <TextBox x:Name="txbPuntuacionEquipoA" Width="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Equipo B</TextBlock>
+                        <TextBox x:Name="txbPuntuacionEquipoB" Width="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Marcador A</TextBlock>
+                        <TextBox x:Name="txbPuntuacionMarcadorA" Width="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Marcador B</TextBlock>
+                        <TextBox x:Name="txbPuntuacionMarcadorB" Width="200"></TextBox>
+                    </StackPanel>
+
+
+                </WrapPanel>
+                <DataGrid x:Name="dtgPuntuacion" Grid.Row="2" IsReadOnly="True" MouseDoubleClick="dtgPuntuacion_MouseDoubleClick">
+                    <DataGrid.Background>
+                        <ImageBrush ImageSource="Imagenes/images.jpg"/>
+                    </DataGrid.Background>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
